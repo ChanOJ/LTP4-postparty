@@ -50,6 +50,10 @@ Source: `Sites web/ltp/http/` on the NAS (the site root) and `Sites web/ltp/ltpd
   host `http://ltp.ojuice.net`: it now opens `index2.html`, the only way to reach the 2000
   results from the 2001 home page. `face="verdana"` gets sans-serif fallbacks (`DejaVu Sans,
   Geneva, sans-serif`) for systems without Verdana (also on the other pages).
+- **Added**: a post-scriptum at the end of `bilan.shtml`, in grey italics and marked
+  "P.S. (added in 2026)": the page says the money left will be used for LTP5, which never took
+  place; the money was given to help organise other French demoparties when the Orange Juice
+  bank accounts were closed (`ADDITIONS` in `scripts/statify.py`).
 - **Removed**: the cnxweb.com hit counter (script, `<noscript>` and image, 7 occurrences), the
   rollover preloader of `menu.inc` (never called; it requested six images that never existed),
   the FTP credentials of the release server (`ftp://ltp:…@ftp.ojuice.net/` → `ftp://ftp.ojuice.net/`,
