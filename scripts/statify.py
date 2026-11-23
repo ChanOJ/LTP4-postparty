@@ -256,7 +256,30 @@ def add_font_fallback(text):
     return FACE_VERDANA_RE.sub(fn, text)
 
 
+# Notes added to the archive (not in the original), each inserted right after an anchor text
+# of the raw page and marked as an addition. The build fails if the anchor is not found.
+ADDITIONS = {
+    "bilan.shtml": (
+        "year for the LTP5.</FONT></p>",
+        '\r\n\t\t\t\t\t\t\t<p align="center"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#999999">'
+        "<I>P.S. (added in 2026): there never was an LTP5. When the bank accounts of Orange Juice "
+        "were closed, all the money left was given to help organise other French demoparties.</I>"
+        "</FONT></p>",
+    ),
+}
+
+
+def add_notes(ctx, text, rel):
+    if rel not in ADDITIONS:
+        return text
+    anchor, note = ADDITIONS[rel]
+    if text.count(anchor) != 1:
+        raise RuntimeError("%s: anchor of the added note not found exactly once: %r" % (rel, anchor))
+    return text.replace(anchor, anchor + note)
+
+
 def convert_html(ctx, text, rel):
+    text = add_notes(ctx, text, rel)
     text = inline_includes(ctx, text, rel)
     text = PRELOAD_RE.sub("", text)
     text = drop_counters(ctx, text)
