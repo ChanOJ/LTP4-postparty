@@ -19,6 +19,7 @@ import fnmatch
 import os
 import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -391,6 +392,8 @@ def main(argv=None):
           % (len(ctx.rendered), ctx.forum_posts, ctx.copied, len(ctx.excluded), ctx.counters, ctx.ftp_creds))
     for w in ctx.warnings:
         print("WARNING:", w, file=sys.stderr)
+    # Crawlers and frames: sitemap.xml, robots.txt and the frame-restore script tag (scripts/seo.py).
+    subprocess.run([sys.executable, "-I", str(REPO / "scripts" / "seo.py"), "--site", str(out)], check=True)
     return 0
 
 
