@@ -23,6 +23,33 @@ import sys
 from pathlib import Path
 
 ENC = "iso-8859-1"
+
+# ---- removal-request footer: added to every page that lists or describes people
+REMOVAL_MARK = 'id="removal-note"'
+REMOVAL_NOTE = (
+    '<div id="removal-note" style="clear:both;margin:28px auto 8px;padding:6px 8px 0;width:60%;'
+    'border-top:1px solid #808080;text-align:center;font:10px/14px Verdana,Arial,Helvetica,sans-serif;'
+    'color:#808080;background:transparent">To be removed from this page, '
+    '<a href="mailto:chandra_oj@pm.me" style="color:#808080;text-decoration:underline">contact me</a>.</div>'
+)
+_BODY_END = re.compile(r"(?is)</body\s*>(?!.*</body\s*>)")
+
+
+def add_removal_note(text):
+    if REMOVAL_MARK in text:
+        return text
+    m = _BODY_END.search(text)
+    if m:
+        return text[: m.start()] + REMOVAL_NOTE + "\n" + text[m.start():]
+    return text + "\n" + REMOVAL_NOTE + "\n"
+
+# Pages that list or describe people (fast compo results, forum posts, tribute home page).
+PEOPLE_PAGES = {"fastresults.html", "forum.html", "index.htm"}
+
+
+def is_people_page(rel):
+    return rel in PEOPLE_PAGES
+
 REPO = Path(__file__).resolve().parent.parent
 # The raw originals live in private/ (git-ignored: they hold ASP sources and the forum data).
 RAW_DEFAULT = Path(os.environ.get("LTP4PP_RAW") or (REPO / "private" / "site-raw"))
@@ -340,7 +367,7 @@ def run(ctx):
             ctx.copied += 1
 
     for new_rel, text in outputs.items():
-        write_text(out / new_rel, text)
+        write_text(out / new_rel, add_removal_note(text) if is_people_page(new_rel) else text)
 
 
 def main(argv=None):
