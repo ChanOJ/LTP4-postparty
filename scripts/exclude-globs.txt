@@ -1,0 +1,18 @@
+# Files that must NOT be published (relative to site/; no '/' = basename anywhere; '*' crosses '/').
+# Read by scripts/statify.py, scripts/verify_build.py and scripts/check_excludes.py.
+# The two ASP pages kept (index2.asp, forum.asp) are rendered to .html by statify.py;
+# their sources, like every other .asp/.inc, are never copied.
+
+# OS junk and backups
+.DS_Store
+Thumbs.db
+*.bak
+# server-side code: ASP sources, SSI fragments (menu.inc is inlined in the pages)
+*.asp
+*.inc
+# pre-party site (rebuilt in the LTP4 repository): entry page, entrance order form (asks for an e-mail)
+img/index.htm
+ltpform.txt
+ltpform.zip
+# older copy of the fast code compo checker, not linked (the linked check11.c is published)
+check.c

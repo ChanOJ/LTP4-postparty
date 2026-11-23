@@ -1,0 +1,110 @@
+char *Grid[16] = {
+ "adbdcdbdddcbdbab",
+ "bccbddbccaadcdaa",
+ "dabdacdbbdacaccd",
+ "cdababcacbdcadca",
+ "baadabbddcdbaddb",
+ "addbdaadcdaddcba",
+ "adcacdabcabcaadc",
+ "acadcbddbbcdcccd",
+ "bdbaadaaabdcaaba",
+ "adadbccbdacddcdb",
+ "dbaaddbcbdbbbcaa",
+ "dccbdcbaacaaacad",
+ "cbdacbcadcbdddcc",
+ "dbaadbacdcaaacab",
+ "dbcdcdbadbbbdaca",
+ "dcddccdcccacdcdb",
+};
+#0 -> Line[4][6-10] = babc
+#1 -> Line[4][6-10] = baba
+#2 -> Line[4][6-10] = babb
+#3 -> Line[4][6-10] = badb
+#4 -> Line[4][6-10] = badc
+#5 -> Line[4][6-10] = bada
+#6 -> Line[4][6-10] = baac
+#7 -> Line[4][6-10] = baab
+#8 -> Line[4][6-10] = bcdc
+#9 -> Line[4][6-10] = bcda
+#10 -> Line[4][6-10] = bcdb
+#11 -> Line[4][6-10] = bcab
+#12 -> Line[4][6-10] = bcac
+#13 -> Line[4][6-10] = bcaa
+#14 -> Line[4][6-10] = bcbb
+#15 -> Line[4][6-10] = bcbc
+#16 -> Line[4][6-10] = bcba
+#17 -> Line[4][6-10] = bdac
+#18 -> Line[4][6-10] = bdaa
+#19 -> Line[4][6-10] = bdab
+#20 -> Line[4][6-10] = bdba
+#21 -> Line[4][6-10] = bdbb
+#22 -> Line[4][6-10] = bdbc
+#23 -> Line[4][6-10] = bddb
+#24 -> Line[4][6-10] = bddc
+#25 -> Line[4][6-10] = bdda
+#26 -> Line[4][6-10] = caab
+#27 -> Line[4][6-10] = caac
+#28 -> Line[4][6-10] = cabb
+#29 -> Line[4][6-10] = cabc
+#30 -> Line[4][6-10] = caba
+#31 -> Line[4][6-10] = cada
+#32 -> Line[4][6-10] = cadb
+#33 -> Line[4][6-10] = cadc
+#34 -> Line[4][6-10] = cbab
+#35 -> Line[4][6-10] = cbac
+#36 -> Line[4][6-10] = cbaa
+#37 -> Line[4][6-10] = cbba
+#38 -> Line[4][6-10] = cbbc
+#39 -> Line[4][6-10] = cbdb
+#40 -> Line[4][6-10] = cbdc
+#41 -> Line[4][6-10] = cbda
+#42 -> Line[4][6-10] = ccda
+#43 -> Line[4][6-10] = ccdb
+#44 -> Line[4][6-10] = ccdc
+#45 -> Line[4][6-10] = ccaa
+#46 -> Line[4][6-10] = ccab
+#47 -> Line[4][6-10] = ccac
+#48 -> Line[4][6-10] = ccbc
+#49 -> Line[4][6-10] = ccba
+#50 -> Line[4][6-10] = ccbb
+#51 -> Line[4][6-10] = cdac
+#52 -> Line[4][6-10] = cdaa
+#53 -> Line[4][6-10] = cdab
+#54 -> Line[4][6-10] = cdbc
+#55 -> Line[4][6-10] = cdba
+#56 -> Line[4][6-10] = cdbb
+#57 -> Line[4][6-10] = cdda
+#58 -> Line[4][6-10] = cddb
+#59 -> Line[4][6-10] = cddc
+#60 -> Line[4][6-10] = dbda
+#61 -> Line[4][6-10] = dbdb
+#62 -> Line[4][6-10] = dbdc
+#63 -> Line[4][6-10] = dbaa
+#64 -> Line[4][6-10] = dbab
+#65 -> Line[4][6-10] = dbac
+#66 -> Line[4][6-10] = dbba
+#67 -> Line[4][6-10] = dbbc
+#68 -> Line[4][6-10] = dcba
+#69 -> Line[4][6-10] = dcbb
+#70 -> Line[4][6-10] = dcbc
+#71 -> Line[4][6-10] = dcdc
+#72 -> Line[4][6-10] = dcda
+#73 -> Line[4][6-10] = dcdb
+#74 -> Line[4][6-10] = dcaa
+#75 -> Line[4][6-10] = dcab
+#76 -> Line[4][6-10] = dcac
+#77 -> Line[4][6-10] = ddab
+#78 -> Line[4][6-10] = ddac
+#79 -> Line[4][6-10] = ddaa
+#80 -> Line[4][6-10] = ddbb
+#81 -> Line[4][6-10] = ddbc
+#82 -> Line[4][6-10] = ddba
+#83 -> Line[4][6-10] = dabb
+#84 -> Line[4][6-10] = dabc
+#85 -> Line[4][6-10] = daba
+#86 -> Line[4][6-10] = dada
+#87 -> Line[4][6-10] = dadb
+#88 -> Line[4][6-10] = dadc
+#89 -> Line[4][6-10] = daab
+#90 -> Line[4][6-10] = daac
+Eval_Line: Number of possible lines=91
