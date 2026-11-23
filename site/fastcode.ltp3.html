@@ -1,0 +1,396 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</HEAD>
+<BODY background="../img/fond2.gif" bgcolor="#3B1F35" text="#FFCCCC" link="#990033">
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="3"><b>Fast compo Code:</b></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Le but est de remplir 
+  une grille carr&eacute;e de 8 cases par 8 :<br>
+  <i>You must fill a 8x8 grid :</i></font></p>
+<table width="34%" border="1">
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&agrave; l'aide 
+  des deux pi&egrave;ces ayant les formes suivantes, appell&eacute;es respectivement 
+  pi&egrave;ce '0' et pi&egrave;ce '1'<br>
+  <i>with the two following pieces, called respectively piece '0' and '1'</i></font></p>
+<table width="8%" border="0">
+  <tr> 
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+  </tr>
+</table>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+</font> 
+<table width="8%" border="0">
+  <tr> 
+    <td>&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Le programme acceptera 
+  en premier argument une cha&icirc;ne de '0' et de '1' (fix&eacute;e ult&eacute;rieurement 
+  par le jury, identique pour tous) repr&eacute;sentant les pi&egrave;ces &agrave; 
+  placer sur la grille. Le nombre de pi&egrave;ces sera donc de 16 (on peut pas 
+  en mettre plus sur la grille...)</font><br>
+  <i><font face="Verdana, Arial, Helvetica, sans-serif" size="2">The program will 
+  accept as a first argument a string made of '0' and '1' (fixed lately by the 
+  jury and identical for all competitors) figuring the pieces to put on the grid. 
+  The number of pieces will be 16 (you can not put more pieces on the grid)</font></i></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">ex: <b>moncode.exe 
+  0110010011101001</b> <font size="1">(cha&icirc;ne non contractuelle et dans 
+  la limite des stocks disponibles) </font></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Le but final est 
+  d'optimiser le placement des pi&egrave;ces de fa&ccedil;on &agrave; laisser 
+  le moins de trous possibles dans la grille. Les rotations successives de 90&deg; 
+  des pi&egrave;ces sont autoris&eacute;es (&agrave; la T&eacute;tris). Seules 
+  les pi&egrave;ces fournies peuvent &ecirc;tre utilis&eacute;es.<br>
+  <i>the goal is to fill the placement of the pieces in order to optimize the 
+  filling of the grid. You can rotate the pieces by step of 90&deg; (like in Tetris)</i></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Le programme affichera 
+  en mode texte la solution du programme sous la forme de 8 cha&icirc;nes successive 
+  de 8 caract&egrave;res repr&eacute;sentant les lignes de la grille remplie.<br>
+  <i>The program will then print in text mode its solution as 8 strings of 8 characters, 
+  representing the rows of the filled grid.</i></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Exemple:</font></p>
+<table width="34%" border="1">
+  <tr> 
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">1</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">3</div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">1</div>
+    </td>
+    <td> 
+      <div align="center">1</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">3</div>
+    </td>
+    <td> 
+      <div align="center">3</div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">1</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">3</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">F</div>
+    </td>
+    <td> 
+      <div align="center">F</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">F</div>
+    </td>
+    <td> 
+      <div align="center">F</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+    <td> 
+      <div align="center">-</div>
+    </td>
+  </tr>
+</table>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Le caract&egrave;re 
+  hexad&eacute;cimal d&eacute;signe le rang de la piece dans la cha&icirc;ne en 
+  param&egrave;tre et le '-' d&eacute;signant un trou.</font><br>
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><i>the hexadecimal 
+  number is the rank of the piece in the input string, and the '-' is a hole.</i></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">1 byte de l'ex&eacute;cutable 
+  vaut un point. Chaque trou ajoute 50 points de p&eacute;nalit&eacute;. Le vainqueur 
+  sera celui qui aura le moins de points. <br>
+  <i>1 byte of the exec is one point. Every hole worth 50 points. The winner is 
+  the one with the less points.</i></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Pas de langage 
+  impos&eacute; mais le programme devra &ecirc;tre ex&eacute;cutable dans une 
+  dosbox et sortir sans planter la machine... Les <b>.com</b> sont &eacute;galement 
+  accept&eacute;s.<br>
+  <i>Every language is accepted, but the program will have to be runnable in a 
+  dosbox and exit without crashing the computer. The .com are also accepted.</i></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">En cas de question/demande 
+  de pr&eacute;cision, s'adresser a <b>Skal</b>.</font><br>
+  <i><font size="2" face="Verdana, Arial, Helvetica, sans-serif">For every question/explanation, 
+  ask to <b>Skal</b>.</font></i></p>
+<hr width="20%">
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="3"><b>Fast compo Music:</b></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Faites un remix 
+  d'une comptine/berceuse connue pour enfants.<br>
+  <i>Make a remix of a well-known child tune.</i></font></p>
+<hr width="20%">
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="3"><b>Fast compo GFX:</b></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Lucky et Tigrou 
+  vont &agrave; South Park (ce sont des chats).<br>
+  <i>Lucky and Tigrou go to South Park (they are cats).</i></font></p>
+<hr width="20%">
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Les deadlines sont 
+  toutes fix&eacute;es &agrave; Dimanche minuit.<br>
+  <i>All fastcompos end sunday midnight. </i></font></p>
+</BODY>
+</HTML>

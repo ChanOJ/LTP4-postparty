@@ -1,0 +1,528 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body text="#FFFFFF" bgcolor="#000000" link="#0000EE" vlink="#55618B" alink="#FF0000">
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size=+2>Tetris,
+again.</font></font><font color="#FFFFFF"><font size=+2></font></font>
+
+<P><p><font color="#FFFFFF" size+=2>Rules:</font>
+<P>
+
+<br><font color="#FFFFFF">
+On a 16x16 grid, each of the the 256 squares are initially painted
+with either colors a,b,c or d.
+<br>
+The game (a Tetris-like) follows as:
+<P>
+
+1) we remove one square.
+<br>
+2) if there are some squares 'floating' above an empty one, the whole
+column falls vertically until the space is filled.
+<br>
+
+3) Cluster of adjacent square sharing the same color may appears.
+Is so, every cluster of size 4 or more is removed.
+"Adjacent" means here being neighbours along one of the four Est, West,
+North or South direction (hence: not the diagonals).
+<P>
+For instance, this is a cluster:
+<P>
+</font>
+<table width="8%" border="0">
+  <tr> 
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br>
+but this one isn't:
+<P>
+<table width="8%" border="0">
+  <tr> 
+    <td>&nbsp;</td> <td>&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td bgcolor="#FF0033">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br>
+
+<br><font color="#FFFFFF">
+4) Goto step 2) until there still are some falling squares.
+<br>
+5) Goto step 1) until they are some squares left.
+</font>
+
+<P><p><font color="#FFFFFF" size+=2>Goal:</font>
+<P>
+
+The games starts with the following configuration:
+<P>
+
+<table width="320" height="320" border="0">
+ <tr>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFFFF">&nbsp;</td>
+  <td bgcolor="#FFFFFF">&nbsp;</td>
+  <td bgcolor="#FFFFFF">&nbsp;</td>
+  <td bgcolor="#FFFFFF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+ <tr>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FF0000">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#0000FF">&nbsp;</td>
+  <td bgcolor="#FFFF00">&nbsp;</td>
+  <td bgcolor="#00FF00">&nbsp;</td>
+  <td bgcolor="#000000">&nbsp;</td>
+ </tr>
+</table>
+<P>
+with color convention:<P>
+<table border="0">
+  <tr> 
+    <td>a = </td>
+    <td bgcolor="#FF0000">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>b = </td>
+    <td bgcolor="#00FF00">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>c = </td>
+    <td bgcolor="#0000FF">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>d = </td>
+    <td bgcolor="#FFFF00">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>? = </td>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+</table>
+<P>
+Here is a C-version:
+<P>
+<pre>
+char *Grid[16] = {
+ "adbdcdbdddcbdbab",
+ "bccbddbccaadcdaa",
+ "dabdacdbbdacaccd",
+ "cdababcacbdcadca",
+ "baadab????dbaddb",	// <- missing
+ "addbdaadcdaddcba",
+ "adcacdabcabcaadc",
+ "acadcbddbbcdcccd",
+ "bdbaadaaabdcaaba",
+ "adadbccbdacddcdb",
+ "dbaaddbcbdbbbcaa",
+ "dccbdcbaacaaacad",
+ "cbdacbcadcbdddcc",
+ "dbaadbacdcaaacab",
+ "dbcdcdbadbbbdaca",
+ "dcddccdcccacdcdb"
+};
+
+</pre>
+
+<P>
+As you've noticed, there's 4 missing squares in the middle, yet-unknown.
+<P>
+
+You program must accept as only argument a string of 4 characters
+'a', 'b', 'c' or 'd'. These characters are the 4 ones missing, in order
+from left to right. They will be randomly chosen later (when ranking
+the entries). It will be the same for everybody. 
+It will respect the constaint of *NOT* generating any removable cluster 
+once inserted in the initial grid.
+
+Given this input, your program must then ouput, on the standard
+channel (stdout), a sequence of square index to remove, one after
+the other, with a carriage return ('\n') inbetween. 
+The squares are indexed in increasing order (beginning at 0)
+starting from the upper-left corner, and heading to the right. The
+output format must be in hexadecimal, with 2 chars ([0-9A-F] or [0-9a-f]),
+without any leading '0x' or ending 'h'.
+<P>
+Namely, the squares' indexes look like:
+<P>
+<pre>
++++++++++++++++++++++++++++++++++++++++++++++++++
++00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f+
++10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f+
++ ...                                           +
++f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 fa fb fc fd fe ff+
++++++++++++++++++++++++++++++++++++++++++++++++++
+</pre>
+<P>
+
+Each time you give a new index, the corresponding square
+is removed from the grid and the steps 2), 3), and 4) of game are run
+until there is no more cluster to remove.
+<P>
+
+The goal is to remove all the grid's squares with as few square removal
+as possible.
+<P>
+At any time, you can stop the process and print the grid's state.
+This will cost you a penalty (see below).
+<br>
+If you succeed in removing all the squares, you don't need to
+print the grid.
+<br>
+The grid must be printed as 16 strings of 16 characters
+' ', 'a', 'b', 'c' or 'd', empty squares corresponding to ' '.
+<br>
+This output will be compared to what the grid *should* be.
+If a square is of the correct type, it will cost you less
+than if the square's type is wrong.
+<P>
+
+
+<P><p><font color="#FFFFFF" size+=2>Scoring:</font>
+<P>
+
+As entry, you can supply a dos-box executable, or an ANSI-C source
+file. This later must compile with 'gcc -o prog prog.c -lm', either
+with DJGPP or linux' gcc. In case of problem, watcom-C will the tried
+too, or even MSVC.
+<p>
+
+- Every byte of executable, or source file, costs 1 point.<br>
+- Every square index output costs 10 points.<br>
+- Printing the grid (and ending) costs a 500 points penalty.<br>
+- A false grid given at the end costs 5 points per wrong square.<br>
+- Correct squares cost 2 points each.
+<P>
+The program's execution may not exceed 5 minutes in time, on the compo PC.
+<P>
+
+The winning entry will be the one scoring least.
+<P>
+
+Entry's output will be checked using <A href="./check.zip">this C-program</a>.
+Use it! (and warn me if anything seems strange/bugged in this 'check.c' :)
+<P>
+
+/Skal
+<P>
+
+</body>
+</html>

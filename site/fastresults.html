@@ -1,0 +1,235 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body text="#FFFFFF" bgcolor="#000000" link="#5060EE" vlink="#55618B" alink="#FF0000">
+
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp; <font size=+2>Tetris,
+again. Results.</font></font><font color="#FFFFFF"><font size=+2></font></font>
+<P>
+
+For the reminder, here is the
+<a href="fastcode.html">problem</a> as stated originally.
+<P>
+
+
+
+<font color="#FFFFFF" size+=2>Entries:</font><P>
+
+Here are the entries:<br>
+
+<ul>
+<li>
+#1 -  <a href="fast01.zip"> Mandor & Sylex </a> (PROG.COM, 4648bytes)
+<br>
+<li>
+#2 -  <a href="fast02.zip"> Dolmen / Experience </a> (TA-DLM.COM, 312 bytes)
+<br>
+<li>
+#3 -  <a href="fast03.zip"> Ocean / Experience </a> (CHECK10.EXE/CHECK10.C), ?????? bytes)
+<br>
+<li>
+#4 -  <a href="fast04.zip"> ChoJin and Ze_Killer / Skytech group </a> (FinalTiny2.com, 198 bytes)
+<br>
+<li>
+#5 -  <a href="fast05.zip"> Valdor / Paradise Studios </a> (fast.com, 280 bytes)
+<br>
+</ul>
+
+Additional non-ranked entry:
+<br>
+<ul>
+<li>
+#6 -  <a href="fast06.zip"> Dolmen / Experience </a> (FastCode.com, 123 bytes)
+<br>
+
+</ul>
+
+Score and comments about the entries:<br>
+
+<ul>
+<li> #1 - 
+Finds a good solution, make the squares fall (hence the size of the exe).
+<br>
+<li> #2 -
+Directly outputs the grid without computing anything. It however
+takes the 4-char input into account (which is a loss of points! :).
+<br>
+<li> #3 -
+this entry is a little bit messy: there's a CHECK10.C source file
+(that does not compile and is a modified version of the originally
+supplied 'check.c') that comes with big exe. Should I take the
+.EXE or the .C as valid entry? Well. I <b>decide</b> to remaster
+the C-source into this  <a href="check11.c">(check11.c, 10000 bytes)</a>
+and take it as input.
+<br>
+<li> #4 - As usual, there is an Editor included! 
+Their search strategy is very good
+(look at the C-version 'Tetris_ZeKiller.c'). 
+But at the end, they realized, like entry #2 and #5, that 
+directly printing the starting grid was a better one. Hehe. That's
+the fun :) So it directly prints the grid (internally packed) without
+taking the input into account. Good move.
+<br>
+<li> #5 - 
+Directly outputs the grid without computing anything, nor
+taking the input into account. But the grid is not packed,
+so the .com is a little bigger than entry #4. This makes
+the difference.
+<br>
+<li> #6 - 
+Dolmen sent me an enhanced version of its entry after the party.
+This one is a very very small .com that prints the grid directly,
+from a compressed form, with the input.
+<br>
+</ul>
+
+They were some output-formatting problem in some
+entries (int 29h instead of int 21h, etc...) which
+I won't take into account.
+<p>
+
+
+<font color="#FFFFFF" size+=2>Input:</font><P>
+
+
+We need to choose a 4-color starting sequence.
+<a href="start.txt">Here are the 91 possibilities</a>.<br>
+I used this <a href="search.c">C-program</a> to search for
+a "difficult" starting grid (> 8million grids tested in 1 day)
+and to generate the 91 possible starting grids.
+<p>
+Let's pick a starting sequence at random:
+<font size+=2>"<b>baba</b>"</font> (looks cool:).
+<br>
+The starting grid is then:<br>
+
+<pre>
+char *Grid[16] = {
+ "adbdcdbdddcbdbab",
+ "bccbddbccaadcdaa",
+ "dabdacdbbdacaccd",
+ "cdababcacbdcadca",
+ "baadabbabadbaddb",
+ "addbdaadcdaddcba",
+ "adcacdabcabcaadc",
+ "acadcbddbbcdcccd",
+ "bdbaadaaabdcaaba",
+ "adadbccbdacddcdb",
+ "dbaaddbcbdbbbcaa",
+ "dccbdcbaacaaacad",
+ "cbdacbcadcbdddcc",
+ "dbaadbacdcaaacab",
+ "dbcdcdbadbbbdaca",
+ "dcddccdcccacdcdb",
+};
+</pre>
+
+
+<font color="#FFFFFF" size+=2>Results:</font><P>
+
+Run with "baba" as input, the programs return the following
+texts:
+<ul>
+<li> #1 - <a href="01.txt">01.txt</a> -> Score: 574 + 4648 = 5222
+<br>
+<li> #2 - <a href="02.txt">02.txt</a> -> Score: 1012 + 312 = 1324
+<br>
+<li> #3 - <a href="03.txt">03.txt</a> -> Score: 582 + 10000 = 10582
+<br>
+<li> #4 - <a href="04.txt">04.txt</a> -> Score: 1012 + 198 = 1210
+<br>
+<li> #5 - <a href="05.txt">05.txt</a> -> Score: 1024 + 280 = 1304
+<br>
+<li> --------------------------------------------------------------
+<li> #6 - <a href="06.txt">06.txt</a> -> Score: 1012 + 123 = 1135
+<br>
+
+</ul>
+<P>
+
+Too bad Dolmen/Experience didn't complete its .com during
+the party, he would have won!!
+<P>
+
+Hence, the final ranking is:
+<P>
+<font size+=2>
+<ul>
+<li> 1rst: #4 - ChoJin and Ze_Killer / Skytech group<br>
+<li> 2nd:  #5 - Valdor / Paradise Studios<br>
+<li> 3rd:  #2 - Dolmen / Experience<br>
+<li> 4th:  #1 - Mandor & Sylex<br>
+<li> 5th:  #3 - Ocean / Experience<br>
+</ul>
+</font>
+<P>
+
+According to these results, Chojin and Ze_Killer told me 
+they decided to give their price for this compo to Knos,
+who's been stolen his laptop during the party. 
+Not only is it the third
+time they win a LTP fast compo (with Houhoutigrou and the
+other Skytechgroup dudes), but
+one can see that their coding skill compares to their
+human qualities. 
+<p>
+
+<font color="#FFFFFF" size+=2>Conclusion:</font><P>
+
+The funny thing about this problem is that the best
+strategy was not the one you would have think of first:
+directly printing the grid. However, packing it a little
+(2bits/square at least) was worthwhile since it made
+the difference.
+
+You should have a look at the .asm source file included in some
+entries. It worthwhile to compare to your code if you've sweat
+on it ;)
+<P>
+Thanks evrybody for having played the game!
+<P>
+/Skal
+<P>
+<P>
+<P>
+
+And btw, while I'm here, here are some few features I find
+important while finding a funny (?) fast-code problem:<br>
+
+<ul>
+<li> Non-determinism: the program's behaviour should be dependant of an 
+unknown input. Just to avoid having a too obvious, deterministic,
+coding strategy.
+<br>
+However, this input should be of limited range so that people can
+still try to precompute (and then, pack) every possibilities,
+or attack it with a brute-force approach (refined later on...).
+<li> Text output is preferable, and raisonably big if possible, so 
+that packing it is worthwhile. It should include penalties if
+last stages of search is not complete, so that it's worthwhile
+to try to push the search a little bit further.
+<li> The compo should be at least 'triable' by non ASM-guru.
+Hence the possibility of submitting a C-source only entry (at
+the expense of small penalty compared to a full asm .com).
+At least, there must be a 'first-try' obvious strategy
+handy, so people can at least try a first draught, quickly.
+<li> Choose the scoring mecanism carefully:
+Size of final code should enter into account, but not
+*that* much. You must left the door open to small ASM code
+being beaten by a better strategy (even written in C).
+<li> It's a plus if the problem is a 'visual' one, so people
+can play with finding some solution 'by hand' (it's the second
+time the Skytech dudes develop a visual 'Editor' for this
+purpose, e.g.).
+</ul>
+
+Souvenir:
+Here is last year's LTP3 <a href="fastcode.ltp3.html">problem</a>.
+I tend to think it was better the year's one. Oh well... :)
+<P>
+
+
+</body>
+</html>
