@@ -6,6 +6,7 @@
 </HEAD>
 
 <BODY bgcolor="#000000" text="#FFFFFF" link="#FF9900" vlink="#999999" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="site-width" style="max-width:1024px;margin:0 auto">
 <CENTER>
   <table width=760 cellspacing=0 cellpadding=0 border=0 align="center" height="0">
     <tr> 
@@ -115,5 +116,6 @@ and the traditional madeleines throwing competition :)</font></p>
     </tr>
   </table>
 </CENTER>
+</div>
 </BODY>
 </HTML>

@@ -28,7 +28,7 @@ ENC = "iso-8859-1"
 # ---- removal-request footer: added to every page that lists or describes people
 REMOVAL_MARK = 'id="removal-note"'
 REMOVAL_NOTE = (
-    '<div id="removal-note" style="clear:both;margin:28px auto 8px;padding:6px 8px 0;width:60%;'
+    '<div id="removal-note" style="clear:both;margin:28px auto 8px;padding:6px 8px 0;width:760px;max-width:96%;box-sizing:border-box;'
     'border-top:1px solid #808080;text-align:center;font:10px/14px Verdana,Arial,Helvetica,sans-serif;'
     'color:#808080;background:transparent">To be removed from this page, '
     '<a href="mailto:chandra_oj@pm.me" style="color:#808080;text-decoration:underline">contact me</a>.</div>'
@@ -44,8 +44,24 @@ def add_removal_note(text):
         return text[: m.start()] + REMOVAL_NOTE + "\n" + text[m.start():]
     return text + "\n" + REMOVAL_NOTE + "\n"
 
-# Pages that list or describe people (fast compo results, forum posts, tribute home page).
-PEOPLE_PAGES = {"fastresults.html", "forum.html", "index.htm"}
+# Pages that carry a family name, an address or an e-mail local part in clear (directly or in a
+# zip they link): fast compo results (fast03.zip, fast.zip) and the results hub (fast.zip).
+# The tribute home page and the forum only hold nicks and first names: no footer.
+PEOPLE_PAGES = {"fastresults.html", "index2.html"}
+
+# Every page is limited to 1024 px and centred (the footer, added first, is inside the wrapper).
+WIDTH_OPEN = '<div id="site-width" style="max-width:1024px;margin:0 auto">'
+_BODY_START = re.compile(r"(?is)<body\b[^>]*>")
+
+
+def limit_width(text):
+    if 'id="site-width"' in text:
+        return text
+    m = _BODY_START.search(text)
+    e = _BODY_END.search(text)
+    if not m or not e:
+        raise RuntimeError("no <body>...</body> to wrap")
+    return text[: m.end()] + "\n" + WIDTH_OPEN + text[m.end(): e.start()] + "</div>\n" + text[e.start():]
 
 
 def is_people_page(rel):
@@ -297,6 +313,31 @@ ADDITIONS = {
 }
 
 
+# Exact replacements (anchor must be found exactly once), applied after the other conversions.
+TEXT_FIXES = {
+    "index.htm": [
+        # dead hosts of Orange Juice: their archives (README "To Do")
+        ('href="http://www.ojuice.net"', 'href="https://orangejuicev3.sauthier.family"'),
+        ('href="http://www.ojuice.net/tshirts.htm"', 'href="https://orangejuicev3.sauthier.family/tshirts.htm"'),
+        ('href="http://nectarine.ojuice.net"', 'href="https://nectarine.sauthier.family"'),
+    ],
+    "index2.asp": [
+        # personal dynamic-DNS host: not published
+        ("or ftp://quad.no-ip.com/pub/LTP4/ or ftp://ftp.chscene.ch/", "or ftp://ftp.chscene.ch/"),
+    ],
+    # check.zip never existed (404 since 2000): the checker source is shipped as check11.c
+    "fastcode.html": [('href="./check.zip"', 'href="check11.c"')],
+}
+
+
+def fix_texts(text, rel):
+    for old, new in TEXT_FIXES.get(rel, []):
+        if text.count(old) != 1:
+            raise RuntimeError("%s: text fix anchor not found exactly once: %r" % (rel, old))
+        text = text.replace(old, new)
+    return text
+
+
 def add_notes(ctx, text, rel):
     if rel not in ADDITIONS:
         return text
@@ -308,6 +349,7 @@ def add_notes(ctx, text, rel):
 
 def convert_html(ctx, text, rel):
     text = add_notes(ctx, text, rel)
+    text = fix_texts(text, rel)
     text = inline_includes(ctx, text, rel)
     text = PRELOAD_RE.sub("", text)
     text = drop_counters(ctx, text)
@@ -368,7 +410,7 @@ def run(ctx):
             ctx.copied += 1
 
     for new_rel, text in outputs.items():
-        write_text(out / new_rel, add_removal_note(text) if is_people_page(new_rel) else text)
+        write_text(out / new_rel, limit_width(add_removal_note(text) if is_people_page(new_rel) else text))
 
 
 def main(argv=None):

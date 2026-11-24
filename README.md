@@ -62,19 +62,24 @@ Source: `Sites web/ltp/http/` on the NAS (the site root) and `Sites web/ltp/ltpd
   rollover preloader of `menu.inc` (never called; it requested six images that never existed),
   the FTP credentials of the release server (`ftp://ltp:…@ftp.ojuice.net/` → `ftp://ftp.ojuice.net/`,
   plain text, not a link).
+- **Removed**: the dynamic-DNS FTP host (`quad.no-ip.com`) in the text of `index2.html`.
 - **Redacted**: e-mail domains (`nick@????`) in pages, `.txt` and `.c` files (only Skal's address in
   `check11.c`). The zip archives are published unchanged.
-- **Not published** (`scripts/exclude-globs.txt`): every `.asp` source (`getadmin.asp`, `m.asp`,
+- **Not published** (`scripts/exclude-globs.txt`): `img/ltpintro.swf`, every `.asp` source (`getadmin.asp`, `m.asp`,
   `forumltp.asp`, ...), `menu.inc`, `*.bak`, `.DS_Store`, the pre-party entry page
   (`img/index.htm`, `img/index.asp`) and entrance order form (`ltpform.txt`, `ltpform.zip`), and
   `check.c` (an older, unlinked copy of the compo checker; `check11.c` and `search.c` are linked
   from the results and published). `forumltp.asp` and `ltpdata/Archivesforum/` are the
   pre-party Q&A forum (other layout, missing images): they belong to the `LTP4` archive. The
   logins folders of `ltpdata/` were never copied.
-- **Left as they were**: dead external links (ojuice.net, nectarine, sponsors) and two links
-  already broken in 2000 (`check.zip` in `fastcode.html`, `../img/fond2.gif` in
-  `fastcode.ltp3.html`). Unlinked images of the server (`img/`, `slices/`) are published as they
-  were, including the Flash intro `img/ltpintro.swf` (served as a download).
+- **Fixed links**: `www.ojuice.net`, `ojuice.net/tshirts.htm` and `nectarine.ojuice.net` on the home page point to their
+  archives on `sauthier.family`; `check.zip` (never existed) in `fastcode.html` points to
+  `check11.c`, the checker source.
+- **Layout**: every page is limited to 1024 px and centred (a wrapper `div` added by `statify.py`).
+- **Left as they were**: other dead external links (`ojuice.net/piclib/...`,
+  sponsors) and `../img/fond2.gif` in `fastcode.ltp3.html` (broken in 2000). Unlinked images of
+  the server (`img/`, `slices/`) are published as they were, except the Flash intro
+  `img/ltpintro.swf`, which belongs to the `LTP4` archive and is not published here.
 
 ## Regenerating `site/`
 
@@ -102,7 +107,7 @@ python3 scripts/preview.py 3544
 - Edge rule 5: browser cache 7 days for images and archives, 1 hour for pages; CDN cache 30
   days, purged on each deployment.
 - Archives (`zip swf`): `application/octet-stream` + `Content-Disposition: attachment`.
-- COOP/CORP `same-origin`. Search engines are allowed (no `X-Robots-Tag`, no `robots.txt`).
+- COOP/CORP `same-origin`. Search engines are allowed (no `X-Robots-Tag`; `robots.txt` and `sitemap.xml` allow everything).
 - CI (deploy workflow), before upload: excluded-paths check, `scripts/verify_build.py --build site`
   and a ClamAV scan of `site/`.
 - Cookies are stripped before the origin; TLS "Compatible"; forced HTTPS.
@@ -110,7 +115,7 @@ python3 scripts/preview.py 3544
 
 ## Removal requests
 
-Pages that list or describe people end with a small footer, "To be removed from this page, contact me." (a `mailto:` link). `scripts/statify.py` adds it (`is_people_page`), so it survives rebuilds; `scripts/verify_build.py` leaves it out of its `mailto:` and e-mail checks.
+Pages that link a file holding a family name or e-mail (`fastresults.html`, `index2.html`: the fast code zips) end with a small footer, "To be removed from this page, contact me." (a `mailto:` link). `scripts/statify.py` adds it (`is_people_page`), so it survives rebuilds; `scripts/verify_build.py` leaves it out of its `mailto:` and e-mail checks.
 
 ## Deploying
 
@@ -170,7 +175,7 @@ If the apply rejects an edge rule or the 404 path, set it by hand (CDN > pull zo
 
 ## To Do
 
-Cross-links to fix in a batch pass (the targets are archived on `sauthier.family`; rewrite the `href`s):
+Cross-links still to fix in a batch pass (the targets are archived on `sauthier.family`):
 
-- `www.ojuice.net` (4 links in 2 files): Orange Juice v3 (https://orangejuicev3.sauthier.family).
-- `nectarine.ojuice.net` (1 link): Nectarine (https://nectarine.sauthier.family).
+- Two `ojuice.net/piclib/index.asp?...` links (`ORGWORDEND.SHTML`): no equivalent in Orange
+  Juice v3 (https://orangejuicev3.sauthier.family) yet.
