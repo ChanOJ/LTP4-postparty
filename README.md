@@ -50,7 +50,7 @@ Source: `Sites web/ltp/http/` on the NAS (the site root) and `Sites web/ltp/ltpd
   → `forum.html`, rendered from the flat files with the original word wrapping, newest first.
   Its posting form is replaced by an "archived, read-only" notice; the admin answer/delete
   links are gone. `build-meta/redirects.tsv` lists the old → new names.
-- **Home page**: unchanged, except the "LTP party" link, which pointed to the site's own dead
+- **Home page**: unchanged, except the Orange Juice links (see "Fixed links") and the "LTP party" link, which pointed to the site's own dead
   host `http://ltp.ojuice.net`: it now opens `index2.html`, the only way to reach the 2000
   results from the 2001 home page. `face="verdana"` gets sans-serif fallbacks (`DejaVu Sans,
   Geneva, sans-serif`) for systems without Verdana (also on the other pages).
@@ -64,7 +64,7 @@ Source: `Sites web/ltp/http/` on the NAS (the site root) and `Sites web/ltp/ltpd
   plain text, not a link).
 - **Removed**: the dynamic-DNS FTP host (`quad.no-ip.com`) in the text of `index2.html`.
 - **Redacted**: e-mail domains (`nick@????`) in pages, `.txt` and `.c` files (only Skal's address in
-  `check11.c`). The zip archives are published unchanged.
+  `check11.c`). The zip archives are published unchanged (`fast*.zip` hold Skal's address in `CHECK10.C`/`check.c`; the pages that link them carry the removal footer).
 - **Not published** (`scripts/exclude-globs.txt`): `img/ltpintro.swf`, every `.asp` source (`getadmin.asp`, `m.asp`,
   `forumltp.asp`, ...), `menu.inc`, `*.bak`, `.DS_Store`, the pre-party entry page
   (`img/index.htm`, `img/index.asp`) and entrance order form (`ltpform.txt`, `ltpform.zip`), and
