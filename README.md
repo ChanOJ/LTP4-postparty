@@ -72,11 +72,11 @@ Source: `Sites web/ltp/http/` on the NAS (the site root) and `Sites web/ltp/ltpd
   from the results and published). `forumltp.asp` and `ltpdata/Archivesforum/` are the
   pre-party Q&A forum (other layout, missing images): they belong to the `LTP4` archive. The
   logins folders of `ltpdata/` were never copied.
-- **Fixed links**: `www.ojuice.net` and `nectarine.ojuice.net` on the home page point to their
+- **Fixed links**: `www.ojuice.net`, `ojuice.net/tshirts.htm` and `nectarine.ojuice.net` on the home page point to their
   archives on `sauthier.family`; `check.zip` (never existed) in `fastcode.html` points to
   `check11.c`, the checker source.
-- **Layout**: every page is limited to 800 px and centred (a wrapper `div` added by `statify.py`).
-- **Left as they were**: other dead external links (`ojuice.net/tshirts.htm`, `ojuice.net/piclib/...`,
+- **Layout**: every page is limited to 1024 px and centred (a wrapper `div` added by `statify.py`).
+- **Left as they were**: other dead external links (`ojuice.net/piclib/...`,
   sponsors) and `../img/fond2.gif` in `fastcode.ltp3.html` (broken in 2000). Unlinked images of
   the server (`img/`, `slices/`) are published as they were, except the Flash intro
   `img/ltpintro.swf`, which belongs to the `LTP4` archive and is not published here.
@@ -177,5 +177,5 @@ If the apply rejects an edge rule or the 404 path, set it by hand (CDN > pull zo
 
 Cross-links still to fix in a batch pass (the targets are archived on `sauthier.family`):
 
-- `ojuice.net/tshirts.htm` (home page) and two `ojuice.net/piclib/index.asp?...` links
-  (`ORGWORDEND.SHTML`): no equivalent path in Orange Juice v3 (https://orangejuicev3.sauthier.family) yet.
+- Two `ojuice.net/piclib/index.asp?...` links (`ORGWORDEND.SHTML`): no equivalent in Orange
+  Juice v3 (https://orangejuicev3.sauthier.family) yet.

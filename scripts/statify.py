@@ -49,8 +49,8 @@ def add_removal_note(text):
 # The tribute home page and the forum only hold nicks and first names: no footer.
 PEOPLE_PAGES = {"fastresults.html", "index2.html"}
 
-# Every page is limited to 800 px and centred (the footer, added first, is inside the wrapper).
-WIDTH_OPEN = '<div id="site-width" style="max-width:800px;margin:0 auto">'
+# Every page is limited to 1024 px and centred (the footer, added first, is inside the wrapper).
+WIDTH_OPEN = '<div id="site-width" style="max-width:1024px;margin:0 auto">'
 _BODY_START = re.compile(r"(?is)<body\b[^>]*>")
 
 
@@ -318,6 +318,7 @@ TEXT_FIXES = {
     "index.htm": [
         # dead hosts of Orange Juice: their archives (README "To Do")
         ('href="http://www.ojuice.net"', 'href="https://orangejuicev3.sauthier.family"'),
+        ('href="http://www.ojuice.net/tshirts.htm"', 'href="https://orangejuicev3.sauthier.family/tshirts.htm"'),
         ('href="http://nectarine.ojuice.net"', 'href="https://nectarine.sauthier.family"'),
     ],
     "index2.asp": [
