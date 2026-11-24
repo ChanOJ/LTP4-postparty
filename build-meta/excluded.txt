@@ -9,3 +9,4 @@ menu.inc
 img/index.asp
 img/index.htm
 img/infos.bak
+img/ltpintro.swf

@@ -16,3 +16,6 @@ ltpform.txt
 ltpform.zip
 # older copy of the fast code compo checker, not linked (the linked check11.c is published)
 check.c
+
+# Flash intro of LTP4 (own copy in the LTP4 repository), left over on this server
+img/ltpintro.swf
