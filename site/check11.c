@@ -3,7 +3,7 @@
 //
 //   verification/scoring program
 // 
-// LTP4. skal@????
+// LTP4. skal@planet-d.net
 //////////////////////////////////////////////////////////////////
 #include <stdio.h>
 

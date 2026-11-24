@@ -56,8 +56,15 @@ IPV4 = re.compile(r"(?<![\d.])(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[
 REMOVAL_NOTE_RE = re.compile(r'(?s)<div id="removal-note".*?</div>')
 
 
+# Addresses of first names / nicks are published whole (only a family name gets masked).
+ALLOWED_EMAILS = ("skal@planet-d.net",)
+
+
 def rd(p):
-    return REMOVAL_NOTE_RE.sub("", Path(p).read_bytes().decode(ENC))
+    t = REMOVAL_NOTE_RE.sub("", Path(p).read_bytes().decode(ENC))
+    for a in ALLOWED_EMAILS:
+        t = t.replace(a, "")
+    return t
 
 
 def all_files(root):

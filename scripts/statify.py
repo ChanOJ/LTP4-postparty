@@ -403,8 +403,9 @@ def run(ctx):
                 continue
             dst = out / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
-            if low.endswith(TEXT_EXT) and not ctx.opts.keep_emails:
-                write_text(dst, strip_ftp_creds(ctx, redact_emails(read_text(full))))
+            if low.endswith(TEXT_EXT):
+                # addresses of first names / nicks stay whole (only a family name gets masked)
+                write_text(dst, strip_ftp_creds(ctx, read_text(full)))
             else:
                 shutil.copy2(full, dst)
             ctx.copied += 1

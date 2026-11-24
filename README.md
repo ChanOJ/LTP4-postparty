@@ -63,8 +63,8 @@ Source: `Sites web/ltp/http/` on the NAS (the site root) and `Sites web/ltp/ltpd
   the FTP credentials of the release server (`ftp://ltp:…@ftp.ojuice.net/` → `ftp://ftp.ojuice.net/`,
   plain text, not a link).
 - **Removed**: the dynamic-DNS FTP host (`quad.no-ip.com`) in the text of `index2.html`.
-- **Redacted**: e-mail domains (`nick@????`) in pages, `.txt` and `.c` files (only Skal's address in
-  `check11.c`). The zip archives are published unchanged (`fast*.zip` hold Skal's address in `CHECK10.C`/`check.c`; the pages that link them carry the removal footer).
+- **Redacted**: e-mail domains (`name@????`) in pages, only when the local part holds a family name
+  (none today). Skal's address in `check11.c` is a nick: kept whole, as in `fast.zip`. The zip archives are published unchanged (`fast*.zip` hold Skal's address in `CHECK10.C`/`check.c`; the pages that link them carry the removal footer).
 - **Not published** (`scripts/exclude-globs.txt`): `img/ltpintro.swf`, every `.asp` source (`getadmin.asp`, `m.asp`,
   `forumltp.asp`, ...), `menu.inc`, `*.bak`, `.DS_Store`, the pre-party entry page
   (`img/index.htm`, `img/index.asp`) and entrance order form (`ltpform.txt`, `ltpform.zip`), and
